@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import AppContext from '../context/context'
 
 const initialState = {
@@ -24,9 +25,19 @@ function App() {
 
   return (
     <AppContext.Provider value={[state, dispatch]}>
-      <div className="App">
-        <div>TEST</div>
-      </div>
+      <Switch>
+        <Route
+          exact path='/'
+          render= {() => {
+            return (
+              <div className="App">
+                <div>TEST</div>
+              </div>
+            )}
+          }
+        />
+      </Switch>
+
     </AppContext.Provider>
   );
 }
