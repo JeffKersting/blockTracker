@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react'
 import AppContext from '../context/context'
-import './App.css';
 
 const initialState = {
   user: '',
@@ -8,22 +7,25 @@ const initialState = {
   favorited: []
 }
 
-const reducer = {state, action} => {
+const reducer = (state, action) => {
   switch(action.type) {
     case 'ADD_USER':
       return {...state, user: action.user}
     case 'FAVORITE_COIN':
       return {...state, favorited: [...state.favorited, action.favorite]}
+    default:
+        return state
   }
 }
 
 function App() {
 
-  const [state, dispatch] = useReducer(reducer, initalState)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <AppContent.Provider value={[state, dispatch]}>
+    <AppContext.Provider value={[state, dispatch]}>
       <div className="App">
+        <div>TEST</div>
       </div>
     </AppContext.Provider>
   );
