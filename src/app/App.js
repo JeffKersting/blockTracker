@@ -1,22 +1,27 @@
+import React, { useReducer } from 'react'
+import AppContext from '../context/context'
 import './App.css';
 
+const initialState = {
+  user: '',
+  theme: 'dark',
+  favorited: []
+}
+
+const reducer = {state, action} => {
+  switch(action.type) {
+    case 'ADD_USER':
+      return {...state, user: action.user}
+    case 'FAVORITE_COIN':
+      return {...state, favorited: [...state.favorited, action.favorite]}
+  }
+}
+
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
