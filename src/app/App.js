@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import LoginPage from '../components/login-page/login-component'
 import AppContext from '../context/context'
 
 const initialState = {
@@ -30,7 +31,7 @@ function App() {
           exact path='/'
           render= {() => {
             return (
-              <div>LOGIN TEST</div>
+              <LoginPage />
             )}
           }
         />
