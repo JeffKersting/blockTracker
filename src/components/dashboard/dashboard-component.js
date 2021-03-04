@@ -1,4 +1,15 @@
+import fetchRequests from '../../utilities/fetch-requests'
+import React, { useState, useEffect } from 'react'
+
 function Dashboard() {
+
+  const [allCoins, setAllCoins] = useState([])
+
+  useEffect(() => {
+    fetchRequests.fetchAllCoins()
+    .then(results => setAllCoins(results))  
+  }, [])
+
 
 
 
@@ -10,3 +21,5 @@ function Dashboard() {
     </>
   )
 }
+
+export default Dashboard
