@@ -19,10 +19,13 @@ const reducer = {state, action} => {
 
 function App() {
 
+  const [state, dispatch] = useReducer(reducer, initalState)
 
   return (
-    <div className="App">
-    </div>
+    <AppContent.Provider value={[state, dispatch]}>
+      <div className="App">
+      </div>
+    </AppContext.Provider>
   );
 }
 
