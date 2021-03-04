@@ -30,9 +30,15 @@ function App() {
           exact path='/'
           render= {() => {
             return (
-              <div className="App">
-                <div>TEST</div>
-              </div>
+              <div>LOGIN TEST</div>
+            )}
+          }
+        />
+        <Route
+          exact path='/dashboard'
+          render= {() => {
+            return (
+              <div>DASHBOARD TEST</div>
             )}
           }
         />
