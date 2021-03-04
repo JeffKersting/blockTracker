@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function LoginPage () {
 
@@ -37,8 +38,10 @@ function LoginPage () {
         value= {passwordInput}
         onChange = {event => passwordInputHandler(event)}
       />
-      <button>Login</button>
-      <button>Signup</button>
+      <Link to={'/dashboard'}>
+        <button>Login</button>
+      </Link>
+
     </form>
   )
 }
