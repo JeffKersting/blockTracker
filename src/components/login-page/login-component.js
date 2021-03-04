@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import AppContext from '../../context/context'
 
 function LoginPage () {
 
@@ -15,6 +14,12 @@ function LoginPage () {
     event.preventDefault()
     setPasswordInput(event.target.value)
   }
+
+  const userLogin = (event) => {
+
+  }
+
+  console.log(localStorage)
 
   return (
     <form>
@@ -32,6 +37,8 @@ function LoginPage () {
         value= {passwordInput}
         onChange = {event => passwordInputHandler(event)}
       />
+      <button>Login</button>
+      <button>Signup</button>
     </form>
   )
 }
