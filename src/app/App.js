@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LoginPage from '../components/login-page/login-component'
+import Dashboard from '../components/dashboard/dashboard-component'
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           exact path='/dashboard'
           render= {() => {
             return (
-              <div>DASHBOARD TEST</div>
+              <Dashboard />
             )}
           }
         />
