@@ -1,33 +1,46 @@
 import fetchRequests from '../../utilities/fetch-requests'
 import React, { useState, useEffect } from 'react'
-import CoinWidget from '../coin-widget/coin-component'
+import WidgetDisplay from '../widget-display/widget-display-component'
 
 function Dashboard() {
 
   const [allCoins, setAllCoins] = useState([])
+  const [favoriteCoins, setFavorite] = useState([])
   const [isLoading, setLoading] = useState(true)
+  const [userFavorites, setUserFavorites] = useState(['ethereum', 'basic-attention-token', 'aave'])
 
   useEffect(() => {
     fetchRequests.fetchAllCoins()
-    .then(results => setAllCoins(results))
-    .then(setLoading(false))
+      .then(results => setAllCoins(results))
+      .then(setLoading(false))
   }, [])
 
 
 
 
   return (
-    <>
+    <div className='dashboard'>
+    <h1>Your Watchlist
+      {!isLoading &&
+        <WidgetDisplay
+          coins={
+            allCoins.filter(coin => userFavorites.includes(coin.id))
+          }
+          key='allCoins'
+        />
+      }
+    </h1>
       <h1>All Coins
         {!isLoading &&
-          allCoins.map((coin, index) =>
-           <CoinWidget
-            coin={coin}
-            key={index}
-           />)
+          <WidgetDisplay
+            coins={
+              allCoins.filter(coin => !userFavorites.includes(coin.id))
+            }
+            key='allCoins'
+          />
         }
       </h1>
-    </>
+    </div>
   )
 }
 
