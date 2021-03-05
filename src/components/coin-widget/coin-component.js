@@ -1,9 +1,15 @@
-function CoinWidget(props) {
+function CoinWidget({ coin }) {
 
-  console.log(props)
+  console.log(coin)
 
   return (
-    <h1>{props.coin.id}</h1>
+    <div className='widget-container'>
+      <h1>{coin.id}
+      <img src={coin.image}/>
+      </h1>
+      <h2>Symbol: {coin.symbol}</h2>
+      <h2>{coin.current_price}</h2>
+    </div>
   )
 }
 
