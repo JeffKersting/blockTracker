@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import User from '../../user/user'
 
 function LoginPage () {
 
@@ -20,7 +21,18 @@ function LoginPage () {
 
   }
 
-  console.log(localStorage)
+  const createUser = (event) => {
+    event.preventDefault()
+    const user = new User(userInput, passwordInput)
+    user.saveToStorage()
+    return <Redirect to='/dashboard'/>
+  }
+
+  const clearInputs = () => {
+    setUserInput('')
+    setPasswordInput('')
+  }
+
 
   return (
     <form>
@@ -38,6 +50,10 @@ function LoginPage () {
         value= {passwordInput}
         onChange = {event => passwordInputHandler(event)}
       />
+      <button
+        onClick={event => createUser(event)}
+      >Create Account
+      </button>
       <Link to={'/dashboard'}>
         <button>Login</button>
       </Link>

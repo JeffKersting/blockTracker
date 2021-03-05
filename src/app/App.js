@@ -6,6 +6,7 @@ import Dashboard from '../components/dashboard/dashboard-component'
 
 function App() {
 
+  const [user, setUser] = useState(null)
 
   return (
     <>
