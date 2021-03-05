@@ -13,7 +13,6 @@ function Dashboard({ userName }) {
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
-    console.log(currentUser)
     fetchRequests.fetchAllCoins()
       .then(results => setAllCoins(results))
       .then(setLoading(false))

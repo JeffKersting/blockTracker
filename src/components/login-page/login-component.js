@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import User from '../../user/user'
 
 function LoginPage () {
@@ -28,6 +28,7 @@ function LoginPage () {
     }
     const user = new User(userInput, passwordInput)
     user.saveToStorage()
+    clearInputs()
     setVerification(true)
   }
 
@@ -42,6 +43,7 @@ function LoginPage () {
       setNotification('Incorrect password!')
       return
     }
+    clearInputs()
     setVerification(true)
   }
 
