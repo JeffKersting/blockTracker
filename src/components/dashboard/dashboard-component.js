@@ -19,11 +19,13 @@ function Dashboard() {
 
 
   return (
-    <>
-    <h1>Favorite Coins
+    <div className='dashboard'>
+    <h1>Your Watchlist
       {!isLoading &&
         <WidgetDisplay
-          coins={allCoins.filter(coin => userFavorites.includes(coin.id))}
+          coins={
+            allCoins.filter(coin => userFavorites.includes(coin.id))
+          }
           key='allCoins'
         />
       }
@@ -31,12 +33,14 @@ function Dashboard() {
       <h1>All Coins
         {!isLoading &&
           <WidgetDisplay
-            coins={allCoins}
+            coins={
+              allCoins.filter(coin => !userFavorites.includes(coin.id))
+            }
             key='allCoins'
           />
         }
       </h1>
-    </>
+    </div>
   )
 }
 
