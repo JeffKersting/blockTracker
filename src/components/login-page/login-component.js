@@ -6,6 +6,7 @@ function LoginPage ({ setUser }) {
 
   const [userInput, setUserInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
+  const [userNotification, setNotification] = useState('')
   const [verified, setVerification] = useState(false)
 
   const userInputHandler = (event) => {
@@ -18,9 +19,6 @@ function LoginPage ({ setUser }) {
     setPasswordInput(event.target.value)
   }
 
-  const userLogin = (event) => {
-
-  }
 
   const createUser = (event) => {
     event.preventDefault()
@@ -31,6 +29,21 @@ function LoginPage ({ setUser }) {
     const user = new User(userInput, passwordInput)
     user.saveToStorage()
     setUser(user)
+    setVerification(true)
+  }
+
+  const loginUser = (event) => {
+    event.preventDefault()
+    if (!localStorage[userInput]) {
+      setNotification('We cannot find a user matching that name, please create a new user')
+      return
+    }
+    const savedUser = JSON.parse(localStorage.getItem(userInput))
+    if (passwordInput !== savedUser.password) {
+      setNotification('Incorrect password!')
+      return
+    }
+    setUser(savedUser)
     setVerification(true)
   }
 
@@ -59,12 +72,16 @@ function LoginPage ({ setUser }) {
         />
         <button
           onClick={event => createUser(event)}
-        >Create Account
+        >
+          Create Account
         </button>
-        <Link to={'/dashboard'}>
-          <button>Login</button>
-        </Link>
+        <button
+          onClick={event => loginUser(event)}
+        >
+          Login
+        </button>
       </form>
+      {userNotification && <h1>{userNotification}</h1>}
       {verified && <Redirect to='/dashboard' />}
     </>
   )
