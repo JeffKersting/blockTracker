@@ -2,7 +2,7 @@ import fetchRequests from '../../utilities/fetch-requests'
 import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 
-function Dashboard() {
+function Dashboard({ user }) {
 
   const [allCoins, setAllCoins] = useState([])
   const [favoriteCoins, setFavorite] = useState([])
@@ -15,7 +15,7 @@ function Dashboard() {
       .then(setLoading(false))
   }, [])
 
-
+  console.log('USER', user)
 
 
   return (

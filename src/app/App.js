@@ -15,7 +15,9 @@ function App() {
           exact path='/'
           render= {() => {
             return (
-              <LoginPage />
+              <LoginPage
+                setUser={setUser}
+              />
             )}
           }
         />
@@ -23,7 +25,9 @@ function App() {
           exact path='/dashboard'
           render= {() => {
             return (
-              <Dashboard />
+              <Dashboard
+                user={user}
+              />
             )}
           }
         />
