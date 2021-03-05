@@ -20,7 +20,11 @@ function Dashboard() {
     <>
       <h1>All Coins
         {!isLoading &&
-          allCoins.map(coin => <CoinWidget coin={coin}/>)
+          allCoins.map((coin, index) =>
+           <CoinWidget
+            coin={coin}
+            key={index}
+           />)
         }
       </h1>
     </>
