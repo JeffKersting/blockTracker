@@ -1,21 +1,22 @@
 import fetchRequests from '../../utilities/fetch-requests'
 import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
+import User from '../../user/user'
 
-function Dashboard() {
+function Dashboard({ userName }) {
 
-  const [allCoins, setAllCoins] = useState([])
-  const [favoriteCoins, setFavorite] = useState([])
+  const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setLoading] = useState(true)
+  const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState(['ethereum', 'basic-attention-token', 'aave'])
 
   useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem(userName))
+    setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     fetchRequests.fetchAllCoins()
       .then(results => setAllCoins(results))
       .then(setLoading(false))
   }, [])
-
-
 
 
   return (

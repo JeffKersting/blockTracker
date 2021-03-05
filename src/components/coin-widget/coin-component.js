@@ -1,7 +1,5 @@
 function CoinWidget({ coin }) {
 
-  console.log(coin)
-
   return (
     <div className='widget-container'>
       <h1>{coin.id}
