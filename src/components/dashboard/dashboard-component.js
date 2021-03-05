@@ -1,6 +1,6 @@
 import fetchRequests from '../../utilities/fetch-requests'
 import React, { useState, useEffect } from 'react'
-import CoinWidget from '../coin-widget/coin-component'
+import WidgetDisplay from '../widget-display/widget-display-component'
 
 function Dashboard() {
 
@@ -9,8 +9,8 @@ function Dashboard() {
 
   useEffect(() => {
     fetchRequests.fetchAllCoins()
-    .then(results => setAllCoins(results))
-    .then(setLoading(false))
+      .then(results => setAllCoins(results))
+      .then(setLoading(false))
   }, [])
 
 
@@ -20,11 +20,10 @@ function Dashboard() {
     <>
       <h1>All Coins
         {!isLoading &&
-          allCoins.map((coin, index) =>
-           <CoinWidget
-            coin={coin}
-            key={index}
-           />)
+          <WidgetDisplay
+            coins={allCoins}
+            key='allCoins'
+          />
         }
       </h1>
     </>
