@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import User from '../../user/user'
 
-function LoginPage ({ setUser }) {
+function LoginPage () {
 
   const [userInput, setUserInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
@@ -28,7 +28,6 @@ function LoginPage ({ setUser }) {
     }
     const user = new User(userInput, passwordInput)
     user.saveToStorage()
-    setUser(user)
     setVerification(true)
   }
 
@@ -43,7 +42,6 @@ function LoginPage ({ setUser }) {
       setNotification('Incorrect password!')
       return
     }
-    setUser(savedUser)
     setVerification(true)
   }
 
@@ -82,7 +80,7 @@ function LoginPage ({ setUser }) {
         </button>
       </form>
       {userNotification && <h1>{userNotification}</h1>}
-      {verified && <Redirect to='/dashboard' />}
+      {verified && <Redirect to={`/dashboard/${userInput}`} />}
     </>
   )
 }
