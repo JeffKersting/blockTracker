@@ -1,0 +1,23 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 35vh;
+  width: 60vw;
+  margin-top: 25vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  @include card-style();
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  button {
+    margin: .3em 0 .3em 0;
+  }
+}
