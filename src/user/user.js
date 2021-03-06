@@ -9,9 +9,8 @@ class User {
     localStorage.setItem(this.name, JSON.stringify(this))
   }
 
-  updateFavorites(coinId) {
-    const user = JSON.parse(localStorage(this.name))
-    this.favorites.push(coinId)
+  updateFavorites(updatedFavorites) {
+    this.favorites = updatedFavorites
     this.saveToStorage()
   }
 }

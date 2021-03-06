@@ -8,15 +8,28 @@ function Dashboard({ userName }) {
   const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setLoading] = useState(true)
   const [allCoins, setAllCoins] = useState([])
-  const [userFavorites, setUserFavorites] = useState(['ethereum', 'basic-attention-token', 'aave'])
+  const [userFavorites, setUserFavorites] = useState([])
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
+    setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins()
       .then(results => setAllCoins(results))
       .then(setLoading(false))
   }, [])
+
+  const addFavorite = (event) => {
+    const id = event.target.id
+    let updatedFavorites;
+    userFavorites.includes(id) ?
+      updatedFavorites = userFavorites.filter(favorite => favorite !== id)
+      :
+      updatedFavorites = [...userFavorites, id]
+
+    currentUser.updateFavorites(updatedFavorites)
+    setUserFavorites(updatedFavorites)
+  }
 
 
   return (
@@ -24,6 +37,8 @@ function Dashboard({ userName }) {
     <h1>Your Watchlist
       {!isLoading &&
         <WidgetDisplay
+          favorited='favorited-coin'
+          addFavorite={event => addFavorite(event)}
           coins={
             allCoins.filter(coin => userFavorites.includes(coin.id))
           }
@@ -34,6 +49,8 @@ function Dashboard({ userName }) {
       <h1>All Coins
         {!isLoading &&
           <WidgetDisplay
+          favorited='unfavorited-coin'
+          addFavorite={event => addFavorite(event)}
             coins={
               allCoins.filter(coin => !userFavorites.includes(coin.id))
             }

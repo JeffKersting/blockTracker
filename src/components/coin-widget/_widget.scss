@@ -27,4 +27,27 @@
     margin-right: .2em;
     float: right;
   }
+
+  .favorite {
+    width: 4em;
+    font-size: .45em;
+    text-align: center;
+    border-radius: 2px;
+    padding: 1px;
+    cursor: pointer;
+    text-shadow: 1px 1px black,
+                 -1px 1px black,
+                 1px -1px black,
+                 -1px -1px black
+
+
+  }
+
+  .favorited-coin {
+    background-color: rgba(255, 215, 0, .5)
+  }
+
+  .unfavorited-coin {
+    background-color: rgba(255,255,255, .5)
+  }
 }
