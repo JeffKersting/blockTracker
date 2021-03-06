@@ -6,7 +6,7 @@ function CoinWidget({ coin, favorited, addFavorite }) {
 
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
-  const favoriteStatus = 'favorited-coin' ? 'Unwatch' : 'Watch'
+  const favoriteStatus = favorited === 'favorited-coin' ? 'Unwatch' : 'Watch'
 
   return (
     <div className='widget-container'>
