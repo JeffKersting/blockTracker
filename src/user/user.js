@@ -10,7 +10,8 @@ class User {
   }
 
   updateFavorites(updatedFavorites) {
-    localStorage.setItem(this.favorites, JSON.stringify(updatedFavorites))
+    this.favorites = updatedFavorites
+    this.saveToStorage()
   }
 }
 

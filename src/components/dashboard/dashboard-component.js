@@ -8,11 +8,12 @@ function Dashboard({ userName }) {
   const [currentUser, setCurrentUser] = useState(null)
   const [isLoading, setLoading] = useState(true)
   const [allCoins, setAllCoins] = useState([])
-  const [userFavorites, setUserFavorites] = useState(['ethereum', 'basic-attention-token', 'aave'])
+  const [userFavorites, setUserFavorites] = useState([])
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
+    setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins()
       .then(results => setAllCoins(results))
       .then(setLoading(false))
@@ -22,11 +23,12 @@ function Dashboard({ userName }) {
     const id = event.target.id
     let updatedFavorites;
     userFavorites.includes(id) ?
-      setUserFavorites(userFavorites.filter(favorite => favorite !== id))
+      updatedFavorites = userFavorites.filter(favorite => favorite !== id)
       :
-      setUserFavorites([...userFavorites, id])
+      updatedFavorites = [...userFavorites, id]
 
-    console.log(userFavorites)  
+    currentUser.updateFavorites(updatedFavorites)
+    setUserFavorites(updatedFavorites)
   }
 
 

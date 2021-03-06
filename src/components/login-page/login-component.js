@@ -23,12 +23,11 @@ function LoginPage () {
   const createUser = (event) => {
     event.preventDefault()
     if (localStorage[userInput]) {
-      console.log('username taken')
+      setNotification('Sorry, this username is already taken')
       return
     }
     const user = new User(userInput, passwordInput)
     user.saveToStorage()
-    clearInputs()
     setVerification(true)
   }
 
@@ -43,7 +42,6 @@ function LoginPage () {
       setNotification('Incorrect password!')
       return
     }
-    clearInputs()
     setVerification(true)
   }
 
