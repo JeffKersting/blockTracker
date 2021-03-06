@@ -52,7 +52,8 @@ function LoginPage () {
 
 
   return (
-    <>
+    <div className='login-container'>
+    <h1>blockTracker</h1>
       <form>
         <input
           type='text'
@@ -69,19 +70,21 @@ function LoginPage () {
           onChange = {event => passwordInputHandler(event)}
         />
         <button
+        onClick={event => loginUser(event)}
+        >
+        Login
+        </button>
+        <button
           onClick={event => createUser(event)}
         >
           Create Account
         </button>
-        <button
-          onClick={event => loginUser(event)}
-        >
-          Login
-        </button>
       </form>
       {userNotification && <h1>{userNotification}</h1>}
-      {verified && <Redirect to={`/dashboard/${userInput}`} />}
-    </>
+      {verified &&
+        <Redirect to={`/dashboard/${userInput}`}
+      />}
+    </div>
   )
 }
 
