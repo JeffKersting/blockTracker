@@ -5,7 +5,7 @@ import User from '../../user/user'
 
 function Dashboard({ userName }) {
 
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState('')
   const [isLoading, setLoading] = useState(true)
   const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState([])
