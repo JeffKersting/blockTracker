@@ -1,18 +1,30 @@
 .widget-container {
   height: 10em;
-  width: 100%;
+  width: 90%;
   margin: 0;
-  padding: 0;
+  padding: 5%;
   background-color: rgba(255,255,255, .2);
   display: flex;
   flex-direction: column;
 
+
+  .widget-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 1em
+  }
+
+  .widget-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: .5em;
+    row-gap: .25em
+  }
+
   h1 {
-    display: flex;
     color: red;
-    width: 100%;
-    justify-content: space-between;
     font-size: 1em;
+    margin-top: .1em;
 
   }
 
@@ -23,12 +35,11 @@
   img {
     height: 1.5em;
     width: 1.5em;
-    margin-top: .1em;
-    margin-right: .2em;
-    float: right;
+    margin-left: 2em;
   }
 
   .favorite {
+
     width: 4em;
     font-size: .45em;
     text-align: center;
