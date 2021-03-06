@@ -18,6 +18,17 @@ function Dashboard({ userName }) {
       .then(setLoading(false))
   }, [])
 
+  const addFavorite = (event) => {
+    const id = event.target.id
+    let updatedFavorites;
+    userFavorites.includes(id) ?
+      setUserFavorites(userFavorites.filter(favorite => favorite !== id))
+      :
+      setUserFavorites([...userFavorites, id])
+
+    console.log(userFavorites)  
+  }
+
 
   return (
     <div className='dashboard'>
@@ -25,6 +36,7 @@ function Dashboard({ userName }) {
       {!isLoading &&
         <WidgetDisplay
           favorited='favorited-coin'
+          addFavorite={event => addFavorite(event)}
           coins={
             allCoins.filter(coin => userFavorites.includes(coin.id))
           }
@@ -36,6 +48,7 @@ function Dashboard({ userName }) {
         {!isLoading &&
           <WidgetDisplay
           favorited='unfavorited-coin'
+          addFavorite={event => addFavorite(event)}
             coins={
               allCoins.filter(coin => !userFavorites.includes(coin.id))
             }
