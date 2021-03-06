@@ -10,7 +10,6 @@ class User {
   }
 
   updateFavorites(coinId) {
-    const user = JSON.parse(localStorage(this.name))
     this.favorites.push(coinId)
     this.saveToStorage()
   }
