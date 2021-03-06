@@ -24,6 +24,7 @@ function Dashboard({ userName }) {
     <h1>Your Watchlist
       {!isLoading &&
         <WidgetDisplay
+          favorited='favorited-coin'
           coins={
             allCoins.filter(coin => userFavorites.includes(coin.id))
           }
@@ -34,6 +35,7 @@ function Dashboard({ userName }) {
       <h1>All Coins
         {!isLoading &&
           <WidgetDisplay
+          favorited='unfavorited-coin'
             coins={
               allCoins.filter(coin => !userFavorites.includes(coin.id))
             }

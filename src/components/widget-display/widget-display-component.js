@@ -1,6 +1,6 @@
 import CoinWidget from '../coin-widget/coin-component'
 
-function WidgetDisplay( { coins } ) {
+function WidgetDisplay( { coins, favorited } ) {
 
   return (
     <div className='widget-display'>
@@ -8,6 +8,7 @@ function WidgetDisplay( { coins } ) {
          <CoinWidget
           coin={coin}
           key={index}
+          favorited={favorited}
          />)}
     </div>
   )

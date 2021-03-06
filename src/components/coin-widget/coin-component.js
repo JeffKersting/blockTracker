@@ -1,4 +1,6 @@
-function CoinWidget({ coin }) {
+function CoinWidget({ coin, favorited }) {
+
+  console.log(favorited)
 
   return (
     <div className='widget-container'>
@@ -7,6 +9,7 @@ function CoinWidget({ coin }) {
       </h1>
       <h2>Symbol: {coin.symbol}</h2>
       <h2>{coin.current_price}</h2>
+      <div className={favorited}/>
     </div>
   )
 }
