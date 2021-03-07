@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import User from '../../user/user'
 
-function LoginPage ({ setUser, user }) {
+function LoginPage ({ setLoginStatus, loggedIn }) {
 
   const [userInput, setUserInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
   const [userNotification, setNotification] = useState('')
-  // const [verified, setVerification] = useState(false)
+
+  // useEffect(() => {
+  //   setLoginStatus(false)
+  // }, [])
 
   const userInputHandler = (event) => {
     event.preventDefault()
@@ -28,8 +31,7 @@ function LoginPage ({ setUser, user }) {
     }
     const user = new User(userInput, passwordInput)
     user.saveToStorage()
-    setUser(userInput)
-    // setVerification(true)
+    setLoginStatus(true)
   }
 
   const loginUser = (event) => {
@@ -43,8 +45,7 @@ function LoginPage ({ setUser, user }) {
       setNotification('Incorrect password!')
       return
     }
-    setUser(userInput)
-    // setVerification(true)
+    setLoginStatus(true)
   }
 
   const clearInputs = () => {
@@ -83,7 +84,7 @@ function LoginPage ({ setUser, user }) {
         </button>
       </form>
       {userNotification && <h1>{userNotification}</h1>}
-      {user &&
+      {loggedIn &&
         <Redirect to={`/dashboard/${userInput}`}
       />}
     </div>
