@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 import User from '../../user/user'
 
-function Dashboard({ userName }) {
+function Dashboard({ userName, setUser }) {
 
   const [currentUser, setCurrentUser] = useState('')
   const [isLoading, setLoading] = useState(true)
@@ -12,6 +12,7 @@ function Dashboard({ userName }) {
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
+    setUser('')
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins()

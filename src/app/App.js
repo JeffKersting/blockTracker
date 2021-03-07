@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LoginPage from '../components/login-page/login-component'
 import Dashboard from '../components/dashboard/dashboard-component'
 
 
 function App() {
+
+  const [user, setUser] = useState('')
 
   return (
     <>
@@ -13,7 +15,10 @@ function App() {
           exact path='/'
           render= {() => {
             return (
-              <LoginPage/>
+              <LoginPage
+                user={user}
+                setUser={setUser}
+              />
             )}
           }
         />
@@ -23,6 +28,7 @@ function App() {
             return (
               <Dashboard
                 userName={match.params.userName}
+                setUser={setUser}
               />
             )}
           }
