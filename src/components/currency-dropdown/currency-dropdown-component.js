@@ -1,4 +1,4 @@
-const CurrencySelection = () => {
+const CurrencySelection = ({ selectCurrency }) => {
 
   const currencies = [
     'USD',
@@ -42,10 +42,10 @@ const CurrencySelection = () => {
   ]
 
   return (
-    <select>
+    <select onChange={event => selectCurrency(event)}>
       {
-      currencies.forEach(currency => {
-        <option value={currency}> {currency} </option>
+      currencies.map(currency => {
+        return <option value={currency}> {currency} </option>
       })
       }
     </select>

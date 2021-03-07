@@ -16,7 +16,7 @@ function Header({ loggedIn, setLoginStatus }) {
           >Logout
           </button>
         </div>}
-      {!loggedIn && <Redirect to='/' />}  
+      {!loggedIn && <Redirect to='/' />}
     </div>
   )
 }

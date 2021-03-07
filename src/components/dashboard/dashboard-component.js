@@ -1,6 +1,7 @@
 import fetchRequests from '../../utilities/fetch-requests'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
+import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
 import User from '../../user/user'
 
 function Dashboard({ userName, setLoginStatus }) {
@@ -9,6 +10,7 @@ function Dashboard({ userName, setLoginStatus }) {
   const [isLoading, setLoading] = useState(true)
   const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState([])
+  const [currency, setCurrency] = useState('USD')
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
@@ -19,6 +21,10 @@ function Dashboard({ userName, setLoginStatus }) {
       .then(results => setAllCoins(results))
       .then(setLoading(false))
   }, [])
+
+  useEffect(() => {
+    console.log(currency)
+  }, [currency])
 
   const addFavorite = (event) => {
     const id = event.target.id
@@ -32,9 +38,17 @@ function Dashboard({ userName, setLoginStatus }) {
     setUserFavorites(updatedFavorites)
   }
 
+  const selectCurrency = (event) => {
+    event.preventDefault()
+    setCurrency(event.target.value)
+  }
+
 
   return (
     <div className='dashboard'>
+      <CurrencySelection
+        selectCurrency={selectCurrency}
+      />
       <h1>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
