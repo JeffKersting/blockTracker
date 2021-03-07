@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 import User from '../../user/user'
 
-function Dashboard({ userName }) {
+function Dashboard({ userName, setLoginStatus }) {
 
   const [currentUser, setCurrentUser] = useState('')
   const [isLoading, setLoading] = useState(true)
@@ -12,6 +12,7 @@ function Dashboard({ userName }) {
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
+    setLoginStatus(true)
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins()
@@ -34,30 +35,30 @@ function Dashboard({ userName }) {
 
   return (
     <div className='dashboard'>
-    <h1>Your Watchlist
-      {!isLoading &&
-        <WidgetDisplay
-          favorited='favorited-coin'
-          addFavorite={event => addFavorite(event)}
-          coins={
-            allCoins.filter(coin => userFavorites.includes(coin.id))
-          }
-          key='allCoins'
-        />
-      }
-    </h1>
-      <h1>All Coins
+      <h1>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
-          favorited='unfavorited-coin'
-          addFavorite={event => addFavorite(event)}
+            favorited='favorited-coin'
+            addFavorite={event => addFavorite(event)}
             coins={
-              allCoins.filter(coin => !userFavorites.includes(coin.id))
+              allCoins.filter(coin => userFavorites.includes(coin.id))
             }
-            key='allCoins'
+            key='favoriteCoins'
           />
         }
       </h1>
+        <h1>All Coins
+          {!isLoading &&
+            <WidgetDisplay
+            favorited='unfavorited-coin'
+            addFavorite={event => addFavorite(event)}
+              coins={
+                allCoins.filter(coin => !userFavorites.includes(coin.id))
+              }
+              key='allCoins'
+            />
+          }
+        </h1>
     </div>
   )
 }

@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import Header from '../components/header/header-component'
 import LoginPage from '../components/login-page/login-component'
 import Dashboard from '../components/dashboard/dashboard-component'
 
 
 function App() {
 
+  const [loggedIn, setLoginStatus] = useState(false)
+
   return (
     <>
+      <Header
+        loggedIn={loggedIn}
+        setLoginStatus={setLoginStatus}
+      />
       <Switch>
         <Route
           exact path='/'
           render= {() => {
             return (
-              <LoginPage/>
+              <LoginPage
+                loggedIn={loggedIn}
+                setLoginStatus={setLoginStatus}
+              />
             )}
           }
         />
@@ -23,6 +33,7 @@ function App() {
             return (
               <Dashboard
                 userName={match.params.userName}
+                setLoginStatus={setLoginStatus}
               />
             )}
           }
