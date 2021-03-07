@@ -13,6 +13,7 @@ function App() {
     <>
       <Header
         loggedIn={loggedIn}
+        setLoginStatus={setLoginStatus}
       />
       <Switch>
         <Route

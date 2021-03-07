@@ -35,30 +35,30 @@ function Dashboard({ userName, setLoginStatus }) {
 
   return (
     <div className='dashboard'>
-    <h1>Your Watchlist
-      {!isLoading &&
-        <WidgetDisplay
-          favorited='favorited-coin'
-          addFavorite={event => addFavorite(event)}
-          coins={
-            allCoins.filter(coin => userFavorites.includes(coin.id))
-          }
-          key='allCoins'
-        />
-      }
-    </h1>
-      <h1>All Coins
+      <h1>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
-          favorited='unfavorited-coin'
-          addFavorite={event => addFavorite(event)}
+            favorited='favorited-coin'
+            addFavorite={event => addFavorite(event)}
             coins={
-              allCoins.filter(coin => !userFavorites.includes(coin.id))
+              allCoins.filter(coin => userFavorites.includes(coin.id))
             }
-            key='allCoins'
+            key='favoriteCoins'
           />
         }
       </h1>
+        <h1>All Coins
+          {!isLoading &&
+            <WidgetDisplay
+            favorited='unfavorited-coin'
+            addFavorite={event => addFavorite(event)}
+              coins={
+                allCoins.filter(coin => !userFavorites.includes(coin.id))
+              }
+              key='allCoins'
+            />
+          }
+        </h1>
     </div>
   )
 }
