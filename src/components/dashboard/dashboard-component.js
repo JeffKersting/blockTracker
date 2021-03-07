@@ -17,13 +17,15 @@ function Dashboard({ userName, setLoginStatus }) {
     setLoginStatus(true)
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
-    fetchRequests.fetchAllCoins()
+    fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
       .then(setLoading(false))
   }, [])
 
   useEffect(() => {
-    console.log(currency)
+    fetchRequests.fetchAllCoins(currency)
+      .then(results => setAllCoins(results))
+      .then(setLoading(false))
   }, [currency])
 
   const addFavorite = (event) => {
