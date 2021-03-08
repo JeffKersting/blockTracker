@@ -3,7 +3,7 @@ import generateCoinData from '../../utilities/coin-data-helper'
 function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
 
   console.log(coin)
-  
+
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
   const favoriteStatus = favorited === 'favorited-coin' ? 'Unwatch' : 'Watch'
@@ -14,7 +14,7 @@ function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) 
     })
 
   return (
-    <div className='widget-container'>
+    <div className='widget-container' name={coin.id}>
       <div className='widget-header'>
         <h1>{coin.name}</h1>
         <img
@@ -27,7 +27,7 @@ function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) 
         <h2>{coin.symbol}</h2>
         <h2>Current Price:</h2>
         <h2>{formattedCoin}</h2>
-        <h2>24 hour change:</h2>
+        <h2>24hr change:</h2>
         <h2 className={priceChange}>{priceChangeSymbol} {coin.price_change_24h}</h2>
         <h2>24hr % change:</h2>
         <h2 className={priceChange}>{priceChangeSymbol} {coin.price_change_percentage_24h}</h2>

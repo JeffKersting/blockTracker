@@ -23,7 +23,7 @@ describe('Dashboard Page', () => {
       .get('button[name=create-user]').click()
   })
 
-  it('Should render with a header that includes a logout button', () => {
+  it('Should include a header that includes a logout button', () => {
     cy.get('.header').should('exist')
       .get('.header').should('contain', 'blockTracker')
       .get('.header button').should('contain', 'Logout')
@@ -38,6 +38,46 @@ describe('Dashboard Page', () => {
     cy.get('.currency-selection').should('contain', 'Currency Format:')
       .get('select[name=format]').should('have.value', 'en-US')
   })
+
+  it('Should not include any coins in Your Watchlist section on initial page load', () => {
+    cy.get('h1[id=your-watchlist]')
+      .get('widget-container').should('not.exist')
+  })
+
+  it('Should include bitcoin in the All Coins section', () => {
+    cy.get('h1[id=all-coins]')
+      .get('div[name=bitcoin]').should('exist')
+      .should('contain', 'Bitcoin')
+      .and('contain', 'Symbol:')
+      .and('contain', 'btc')
+      .and('contain', 'Current Price:')
+      .and('contain', '$50,776.00')
+      .and('contain', '24hr change:')
+      .and('contain', '+ 937.26')
+      .and('contain', '24hr % change:')
+      .and('contain', '+ 1.8806')
+      .and('contain', 'Market cap:')
+      .and('contain', '951576368383')
+      .and('contain', 'Total Volume:')
+      .and('contain', '45897251866')
+  })
+
+  it('Should include Watch selection on coin widgets', () => {
+    cy.get('div[name=bitcoin]')
+      .get('div[id=bitcoin]').should('exist')
+  })
+
+  it('Should allow user to add coins to their watchlist', () => {
+    cy.get('div[id=bitcoin]').click()
+      .get('h1[id=your-watchlist] div[name=bitcoin]')
+  })
+
+  it('Should remove coins from watchlist when Unwatch is clicked', () => {
+    cy.get('div[id=bitcoin]').click()
+      .get('h1[id=your-watchlist] div[name=bitcoin]').should('not.exist')
+  })
+
+
 
   //Add currency/format change after making intercepts
 })
