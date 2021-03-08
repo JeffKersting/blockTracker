@@ -1,6 +1,16 @@
 import generateCoinData from '../../utilities/coin-data-helper'
 
-function CoinWidget({ coin, favorited, addFavorite }) {
+function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
+
+  console.log(currency, currencyFormat)
+
+  const formattedCoin = coin.current_price.toLocaleString(
+                          `${currencyFormat}`, {
+                          style: 'currency',
+                          currency: `${currency}`
+                        })
+
+  console.log(formattedCoin)
 
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
@@ -23,12 +33,7 @@ function CoinWidget({ coin, favorited, addFavorite }) {
         <h2>Symbol: </h2>
         <h2>{coin.symbol}</h2>
         <h2>Current Price:</h2>
-        <h2>
-          {coin.current_price.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          })}
-        </h2>
+        <h2>{formattedCoin}</h2>
         <h2>24 hour change:</h2>
         <h2 className={priceChange}>{priceChangeSymbol} {coin.price_change_24h}</h2>
         <h2>24hr % change:</h2>
