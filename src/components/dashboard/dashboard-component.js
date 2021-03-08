@@ -65,7 +65,7 @@ function Dashboard({ userName, setLoginStatus }) {
           selectFormat={selectFormat}
         />
       </div>
-      <h1 id='your-watchlist'>Your Watchlist
+      <h1 id='your-watchlist' className='coin-list'>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
             favorited='favorited-coin'
@@ -79,7 +79,7 @@ function Dashboard({ userName, setLoginStatus }) {
           />
         }
       </h1>
-        <h1 id='all-coins'>All Coins
+        <h1 id='all-coins' className='coin-list'>All Coins
           {!isLoading &&
             <WidgetDisplay
             favorited='unfavorited-coin'

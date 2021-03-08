@@ -10,4 +10,8 @@
   align-items: center;
   padding: .2em;
   box-shadow: 1px 0 4px 1px white;
+
+  @media only screen and (max-width: 500px) {
+    font-size: .8em; 
+  }
 }
