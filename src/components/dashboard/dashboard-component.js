@@ -26,7 +26,7 @@ function Dashboard({ userName, setLoginStatus }) {
   }, [])
 
   useEffect(() => {
-    fetchRequests.fetchAllCoins('currency')
+    fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
       .then(setLoading(false))
       .catch(error => setError(error))
