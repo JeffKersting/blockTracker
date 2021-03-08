@@ -10,7 +10,7 @@ function App() {
   const [loggedIn, setLoginStatus] = useState(false)
 
   useEffect(() => {
-    setLoginStatus(false)
+    setLoginStatus(true)
   }, [])
 
   return (
@@ -19,40 +19,10 @@ function App() {
         loggedIn={loggedIn}
         setLoginStatus={setLoginStatus}
       />
-      {!loggedIn && <Redirect to='/login' />}
-      <Switch>
-        <Route
-          exact path='/dashboard'
-          render= {() => {
-            console.log('RERENDER')
-            return (
-              <Redirect to='/login' />
-            )}
-          }
-        />
-        <Route
-          exact path='/login'
-          render= {() => {
-            return (
-              <LoginPage
-                loggedIn={loggedIn}
-                setLoginStatus={setLoginStatus}
-              />
-            )}
-          }
-        />
-        <Route
-          exact path='/dashboard/:userName'
-          render= {({match}) => {
-            return (
-              <Dashboard
-                userName={match.params.userName}
-                setLoginStatus={setLoginStatus}
-              />
-            )}
-          }
-        />
-      </Switch>
+      <Dashboard
+        userName={'jeff'}
+        setLoginStatus={setLoginStatus}
+      />
     </>
   );
 }

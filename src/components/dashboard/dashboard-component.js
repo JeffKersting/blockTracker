@@ -15,7 +15,7 @@ function Dashboard({ userName, setLoginStatus }) {
   const [errorMessage, setError] = useState('')
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem(userName))
+    const savedUser = JSON.parse(localStorage.getItem('jeff'))
     setLoginStatus(true)
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
