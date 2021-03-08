@@ -24,7 +24,7 @@ function CoinWidget({ coin, favorited, addFavorite }) {
         <h2>{coin.symbol}</h2>
         <h2>Current Price:</h2>
         <h2>
-          {coin.current_price.toLocaleString('en-us', {
+          {coin.current_price.toLocaleString('en-US', {
             style: 'currency',
             currency: 'USD'
           })}
