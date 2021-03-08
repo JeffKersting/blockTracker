@@ -36,8 +36,7 @@ function Dashboard({ userName, setLoginStatus }) {
     const id = event.target.id
     let updatedFavorites;
     userFavorites.includes(id) ?
-      updatedFavorites = userFavorites.filter(favorite => favorite !== id)
-      :
+      updatedFavorites = userFavorites.filter(favorite => favorite !== id) :
       updatedFavorites = [...userFavorites, id]
 
     currentUser.updateFavorites(updatedFavorites)
@@ -47,6 +46,14 @@ function Dashboard({ userName, setLoginStatus }) {
   const selectCurrency = (event) => {
     event.preventDefault()
     setCurrency(event.target.value)
+  }
+
+  const filterFavorites = (favorited) => {
+    let filteredCoins;
+    favorited === true ?
+      filteredCoins = allCoins.filter(coin => userFavorites.includes(coin.id)) :
+      filteredCoins = allCoins.filter(coin => !userFavorites.includes(coin.id))
+    return filteredCoins
   }
 
   return (
@@ -68,9 +75,7 @@ function Dashboard({ userName, setLoginStatus }) {
                   favorited='favorited-coin'
                   currency={currency}
                   addFavorite={event => addFavorite(event)}
-                  coins={
-                    allCoins.filter(coin => userFavorites.includes(coin.id))
-                  }
+                  coins={filterFavorites(true)}
                   key='favoriteCoins'
                 />
               </h1>
@@ -80,9 +85,7 @@ function Dashboard({ userName, setLoginStatus }) {
                   favorited='unfavorited-coin'
                   currency={currency}
                   addFavorite={event => addFavorite(event)}
-                    coins={
-                      allCoins.filter(coin => !userFavorites.includes(coin.id))
-                    }
+                    coins={filterFavorites(false)}
                     key='allCoins'
                   />
               </h1>
