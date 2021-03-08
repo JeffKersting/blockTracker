@@ -1,4 +1,3 @@
-import generateCoinData from '../../utilities/coin-data-helper'
 import { PropTypes } from 'prop-types'
 
 function CoinWidget({ coin, favorited, addFavorite, currency }) {

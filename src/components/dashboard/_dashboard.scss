@@ -22,4 +22,16 @@
   .coin-list {
     text-align: center;
   }
+
+}
+
+.error {
+  position: fixed;
+  top: 20vh;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1em;
+  background: rgba(240, 128, 128, .5);
+  padding: 2em;
+  border-radius: 5px;
 }
