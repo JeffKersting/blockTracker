@@ -57,7 +57,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
 
   return (
     <div className='login-container'>
-    <h1>blockTracker</h1>
+      <h1>blockTracker</h1>
       <form>
         <input
           type='text'
