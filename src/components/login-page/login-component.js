@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import User from '../../user/user'
+import { PropTypes } from 'prop-types'
 
 function LoginPage ({ setLoginStatus, loggedIn }) {
 
@@ -57,7 +58,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
 
   return (
     <div className='login-container'>
-    <h1>blockTracker</h1>
+      <h1>blockTracker</h1>
       <form>
         <input
           type='text'
@@ -92,6 +93,11 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
       />}
     </div>
   )
+}
+
+LoginPage.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol]),
+  onChange: PropTypes.func
 }
 
 export default LoginPage

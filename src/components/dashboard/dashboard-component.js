@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
 import User from '../../user/user'
+import { PropTypes } from 'prop-types'
 
 function Dashboard({ userName, setLoginStatus }) {
 
@@ -81,6 +82,11 @@ function Dashboard({ userName, setLoginStatus }) {
         </h1>
     </div>
   )
+}
+
+Dashboard.propTypes = {
+  userName: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol]),
+  setLoginStatus: PropTypes.func
 }
 
 export default Dashboard

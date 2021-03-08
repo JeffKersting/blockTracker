@@ -1,3 +1,5 @@
+import { PropTypes } from 'prop-types'
+
 const CurrencySelection = ({ selectCurrency }) => {
 
   const currencies = [
@@ -54,6 +56,10 @@ const CurrencySelection = ({ selectCurrency }) => {
       }
     </select>
   )
+}
+
+CurrencySelection.propTypes = {
+  onChange: PropTypes.func
 }
 
 export default CurrencySelection

@@ -1,4 +1,5 @@
 import { Redirect } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
 
 function Header({ loggedIn, setLoginStatus }) {
 
@@ -19,6 +20,11 @@ function Header({ loggedIn, setLoginStatus }) {
       {!loggedIn && <Redirect to='/' />}
     </div>
   )
+}
+
+Header.propTypes = {
+  loggedIn: PropTypes.bool,
+  setLoginStatus: PropTypes.func
 }
 
 export default Header
