@@ -25,11 +25,6 @@ describe('Dashboard Page', () => {
       .get('select[name=currency]').should('have.value', 'USD')
   })
 
-  it('Should include a currency format selection that defaults to en-US', () => {
-    cy.get('.currency-selection').should('contain', 'Currency Format:')
-      .get('select[name=format]').should('have.value', 'en-US')
-  })
-
   it('Should not include any coins in Your Watchlist section on initial page load', () => {
     cy.get('h1[id=your-watchlist]')
       .get('widget-container').should('not.exist')
@@ -39,18 +34,6 @@ describe('Dashboard Page', () => {
     cy.get('h1[id=all-coins]')
       .get('div[name=bitcoin]').should('exist')
       .should('contain', 'Bitcoin')
-      .and('contain', 'Symbol:')
-      .and('contain', 'btc')
-      .and('contain', 'Current Price:')
-      .and('contain', '$50,776.00')
-      .and('contain', '24hr change:')
-      .and('contain', '+ 937.26')
-      .and('contain', '24hr % change:')
-      .and('contain', '+ 1.8806')
-      .and('contain', 'Market cap:')
-      .and('contain', '951576368383')
-      .and('contain', 'Total Volume:')
-      .and('contain', '45897251866')
   })
 
   it('Should include Watch selection on coin widgets', () => {
@@ -80,6 +63,8 @@ describe('Dashboard Page', () => {
       .select('EUR')
       .get('div[name=bitcoin]')
       .should('contain', '€50,521.00')
+      .get('select[name=currency]')
+      .select('USD')
 
   })
 
