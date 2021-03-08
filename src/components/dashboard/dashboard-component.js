@@ -12,6 +12,7 @@ function Dashboard({ userName, setLoginStatus }) {
   const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState([])
   const [currency, setCurrency] = useState('USD')
+  const [errorMessage, setError] = useState('')
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
@@ -21,6 +22,7 @@ function Dashboard({ userName, setLoginStatus }) {
     fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
       .then(setLoading(false))
+      .catch(error => setError(error))
   }, [])
 
   useEffect(() => {
