@@ -55,12 +55,16 @@ function Dashboard({ userName, setLoginStatus }) {
 
   return (
     <div className='dashboard'>
-      <CurrencySelection
-        selectCurrency={selectCurrency}
-      />
-      <CurrencyFormatSelection
-        selectFormat={selectFormat}
-      />
+      <div className='currency-selection'>
+        <h2>Currency:</h2>
+        <CurrencySelection
+          selectCurrency={selectCurrency}
+        />
+        <h2>Currency Format: </h2>
+        <CurrencyFormatSelection
+          selectFormat={selectFormat}
+        />
+      </div>
       <h1>Your Watchlist
         {!isLoading &&
           <WidgetDisplay

@@ -1,5 +1,19 @@
 .dashboard {
-  margin-top: 8vh
+  margin-top: 8vh;
+
+  .currency-selection {
+    display: flex;
+    margin-bottom: 2em;
+
+    h2 {
+      font-size: .8em;
+      margin-right: .2em;
+    }
+
+    select {
+      margin-right: 2em;
+    }
+  }
 
 
 }

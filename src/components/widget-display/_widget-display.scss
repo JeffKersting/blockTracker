@@ -1,5 +1,6 @@
 .widget-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
-  grid-gap: .5em
+  grid-gap: .5em;
+  margin: 1em 0 1em 0;
 }
