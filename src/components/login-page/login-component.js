@@ -8,10 +8,6 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
   const [passwordInput, setPasswordInput] = useState('')
   const [userNotification, setNotification] = useState('')
 
-  // useEffect(() => {
-  //   setLoginStatus(false)
-  // }, [])
-
   const userInputHandler = (event) => {
     event.preventDefault()
     setUserInput(event.target.value)
