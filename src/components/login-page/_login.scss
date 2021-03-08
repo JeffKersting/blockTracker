@@ -10,6 +10,9 @@
   transform: translateX(-50%);
   @include card-style();
 
+  @media only screen and (min-width: 500px) {
+    width: 30vw;
+  }
 
   form {
     display: flex;
@@ -20,4 +23,11 @@
   button {
     margin: .3em 0 .3em 0;
   }
+}
+
+.footer {
+  position: absolute;
+  bottom: .1em;
+  left: .1em;
+  font-size: .4em;
 }
