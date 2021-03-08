@@ -20,7 +20,7 @@ function App() {
         setLoginStatus={setLoginStatus}
       />
       <Dashboard
-        userName={'jeff'}
+        userName={'test'}
         setLoginStatus={setLoginStatus}
       />
     </>
