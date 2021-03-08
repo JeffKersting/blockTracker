@@ -39,18 +39,6 @@ describe('Dashboard Page', () => {
     cy.get('h1[id=all-coins]')
       .get('div[name=bitcoin]').should('exist')
       .should('contain', 'Bitcoin')
-      .and('contain', 'Symbol:')
-      .and('contain', 'btc')
-      .and('contain', 'Current Price:')
-      .and('contain', '$50,776.00')
-      .and('contain', '24hr change:')
-      .and('contain', '+ 937.26')
-      .and('contain', '24hr % change:')
-      .and('contain', '+ 1.8806')
-      .and('contain', 'Market cap:')
-      .and('contain', '951576368383')
-      .and('contain', 'Total Volume:')
-      .and('contain', '45897251866')
   })
 
   it('Should include Watch selection on coin widgets', () => {
