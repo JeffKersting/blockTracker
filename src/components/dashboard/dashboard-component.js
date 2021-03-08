@@ -99,7 +99,7 @@ function Dashboard({ userName, setLoginStatus }) {
 }
 
 Dashboard.propTypes = {
-  userName: PropTypes.string,
+  userName: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol]),
   setLoginStatus: PropTypes.func
 }
 
