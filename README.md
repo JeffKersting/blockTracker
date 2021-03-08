@@ -7,7 +7,8 @@
 1. [Introduction](#introduction)
 2. [Instructions](#setup-instructions)
 3. [How-To](#using-blockTracker)
-4. [Challenges & Wins](#challenges-&-wins)
+4. [Learning Goals](#learning-goals)
+5. [Challenges & Wins](#challenges-&-wins)
 
 ## Introduction
   The task was to build an app that reaches a niche audience, consuming an API of our choice. Given growing interest in the crypto currency space, I have created an app that allows users to view the top crypto-currencies. Users are also able to add their favorite cryptos to a watchlist. Please follow the [setup instructions](#setup-instructions) below on how to begin!
@@ -68,6 +69,12 @@ Future Iterations:
 - Add helpful pop-ups that will explain aspects of the coin data that may be unfamiliar to those new to the crypto space.
 
 [Back to Top of Page](#table-of-contents)
+
+## Learning Goals
+
+- For this project, I really wanted to push myself to focus on following a professional workflow . To accomplish this, I remained conscious of the idea that somebody may need to follow the entire evolution of the project from start to finish. By keeping this in mind, I wrote more descriptive pull requests than I had in the past, and made sure to atomize my commits, and use clear and concise messages.
+
+- Additionally, I wanted to spend extra time focusing on code outside the scope of core functionality. This includes writing tests that were as in-depth as possible, and implementing prop type checks and stricter input checks. I tend to focus too much on adding additional features, and certain foundational practices will be neglected in the process. By slowing my workflow, and focusing on solid fundamentals, I feel confident that my code is clearer and less prone to issues.
 
 ## Challenges & Wins
 
