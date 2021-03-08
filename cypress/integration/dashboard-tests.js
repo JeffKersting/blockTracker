@@ -1,18 +1,9 @@
 describe('Dashboard Page', () => {
 
-
-
   it('Should take users to the dashboard page on login/account creation', () => {
     cy.fixture('../fixtures/coinsUSD.json')
       .then((response) => {
         cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
-          statusCode: 200,
-          body: response
-        })
-    })
-    cy.fixture('../fixtures/coinsEUR.json')
-      .then((response) => {
-        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=EUR&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
           statusCode: 200,
           body: response
         })
@@ -78,13 +69,18 @@ describe('Dashboard Page', () => {
   })
 
   it('Should allow users to select a different currency and update the coin data', () => {
+    cy.fixture('../fixtures/coinsEUR.json')
+      .then((response) => {
+        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=EUR&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
+          statusCode: 200,
+          body: response
+        })
+    })
     cy.get('select[name=currency]')
       .select('EUR')
       .get('div[name=bitcoin]')
-      .should('contain', '€42,634.00')
+      .should('contain', '€50,521.00')
 
   })
 
-
-  //Add currency/format change after making intercepts
 })
