@@ -1,6 +1,8 @@
 import fetchRequests from '../../utilities/fetch-requests'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
+import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
+import CurrencyFormatSelection from '../currency-dropdown/currency-format-component'
 import User from '../../user/user'
 
 function Dashboard({ userName, setLoginStatus }) {
@@ -9,16 +11,24 @@ function Dashboard({ userName, setLoginStatus }) {
   const [isLoading, setLoading] = useState(true)
   const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState([])
+  const [currency, setCurrency] = useState('USD')
+  const [currencyFormat, setFormat] = useState('en-US')
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
     setLoginStatus(true)
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
-    fetchRequests.fetchAllCoins()
+    fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
       .then(setLoading(false))
   }, [])
+
+  useEffect(() => {
+    fetchRequests.fetchAllCoins(currency)
+      .then(results => setAllCoins(results))
+      .then(setLoading(false))
+  }, [currency])
 
   const addFavorite = (event) => {
     const id = event.target.id
@@ -32,13 +42,31 @@ function Dashboard({ userName, setLoginStatus }) {
     setUserFavorites(updatedFavorites)
   }
 
+  const selectCurrency = (event) => {
+    event.preventDefault()
+    setCurrency(event.target.value)
+  }
+
+  const selectFormat = (event) => {
+    event.preventDefault()
+    setFormat(event.target.value)
+  }
+
 
   return (
     <div className='dashboard'>
+      <CurrencySelection
+        selectCurrency={selectCurrency}
+      />
+      <CurrencyFormatSelection
+        selectFormat={selectFormat}
+      />
       <h1>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
             favorited='favorited-coin'
+            currency={currency}
+            currencyFormat={currencyFormat}
             addFavorite={event => addFavorite(event)}
             coins={
               allCoins.filter(coin => userFavorites.includes(coin.id))
@@ -51,6 +79,8 @@ function Dashboard({ userName, setLoginStatus }) {
           {!isLoading &&
             <WidgetDisplay
             favorited='unfavorited-coin'
+            currency={currency}
+            currencyFormat={currencyFormat}
             addFavorite={event => addFavorite(event)}
               coins={
                 allCoins.filter(coin => !userFavorites.includes(coin.id))
