@@ -8,8 +8,13 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
   const [passwordInput, setPasswordInput] = useState('')
   const [userNotification, setNotification] = useState('')
 
+  useEffect(() => {
+    clearInputs()
+  }, [])
+
   const userInputHandler = (event) => {
     event.preventDefault()
+    setNotification('')
     setUserInput(event.target.value)
   }
 
@@ -22,7 +27,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
   const createUser = (event) => {
     event.preventDefault()
     if (localStorage[userInput]) {
-      setNotification('Sorry, this username is already taken')
+      setNotification(`Sorry, the username ${userInput} is already in use`)
       return
     }
     const user = new User(userInput, passwordInput)
@@ -33,12 +38,12 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
   const loginUser = (event) => {
     event.preventDefault()
     if (!localStorage[userInput]) {
-      setNotification('We cannot find a user matching that name, please create a new user')
+      setNotification(`We cannot find a user matching ${userInput}, please create a new user`)
       return
     }
     const savedUser = JSON.parse(localStorage.getItem(userInput))
     if (passwordInput !== savedUser.password) {
-      setNotification('Incorrect password!')
+      setNotification('Incorrect password')
       return
     }
     setLoginStatus(true)
@@ -64,22 +69,24 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
         <input
           type='text'
           placeholder='password...'
-          name='username'
+          name='password'
           value= {passwordInput}
           onChange = {event => passwordInputHandler(event)}
         />
         <button
+        name='login'
         onClick={event => loginUser(event)}
         >
         Login
         </button>
         <button
+          name='create-user'
           onClick={event => createUser(event)}
         >
           Create Account
         </button>
       </form>
-      {userNotification && <h1>{userNotification}</h1>}
+      {userNotification && <h1 className='login-error'>{userNotification}</h1>}
       {loggedIn &&
         <Redirect to={`/dashboard/${userInput}`}
       />}
