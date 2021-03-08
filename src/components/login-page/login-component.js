@@ -56,41 +56,44 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
 
 
   return (
-    <div className='login-container'>
-    <h1>blockTracker</h1>
-      <form>
-        <input
-          type='text'
-          placeholder='username...'
-          name='username'
-          value = {userInput}
-          onChange = {event => userInputHandler(event)}
-        />
-        <input
-          type='text'
-          placeholder='password...'
-          name='password'
-          value= {passwordInput}
-          onChange = {event => passwordInputHandler(event)}
-        />
-        <button
-        name='login'
-        onClick={event => loginUser(event)}
-        >
-        Login
-        </button>
-        <button
-          name='create-user'
-          onClick={event => createUser(event)}
-        >
-          Create Account
-        </button>
-      </form>
-      {userNotification && <h1 className='login-error'>{userNotification}</h1>}
-      {loggedIn &&
-        <Redirect to={`/dashboard/${userInput}`}
-      />}
-    </div>
+    <>
+      <div className='login-container'>
+      <h1>blockTracker</h1>
+        <form>
+          <input
+            type='text'
+            placeholder='username...'
+            name='username'
+            value = {userInput}
+            onChange = {event => userInputHandler(event)}
+          />
+          <input
+            type='text'
+            placeholder='password...'
+            name='password'
+            value= {passwordInput}
+            onChange = {event => passwordInputHandler(event)}
+          />
+          <button
+          name='login'
+          onClick={event => loginUser(event)}
+          >
+          Login
+          </button>
+          <button
+            name='create-user'
+            onClick={event => createUser(event)}
+          >
+            Create Account
+          </button>
+        </form>
+        {userNotification && <h1 className='login-error'>{userNotification}</h1>}
+        {loggedIn &&
+          <Redirect to={`/dashboard/${userInput}`}
+        />}
+      </div>
+      <h2 className="footer">Powered by CoinGecko API</h2>
+    </>
   )
 }
 

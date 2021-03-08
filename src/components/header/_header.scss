@@ -6,12 +6,20 @@
   width: 100%;
   height: 5vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: .2em;
   box-shadow: 1px 0 4px 1px white;
 
   @media only screen and (max-width: 500px) {
-    font-size: .8em; 
+    font-size: .8em;
   }
+
+  h1 {
+    padding-left: .5em;
+    font-size: 2em;
+  }
+
 }
+
+// <h2>Powered by CoinGecko API</h2>
