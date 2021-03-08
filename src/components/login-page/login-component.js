@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import User from '../../user/user'
+import { PropTypes } from 'prop-types'
 
 function LoginPage ({ setLoginStatus, loggedIn }) {
 
@@ -95,6 +96,11 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
       <h2 className="footer">Powered by CoinGecko API</h2>
     </>
   )
+}
+
+LoginPage.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol]),
+  onChange: PropTypes.func
 }
 
 export default LoginPage

@@ -1,9 +1,9 @@
 import fetchRequests from '../../utilities/fetch-requests'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
-import CurrencyFormatSelection from '../currency-dropdown/currency-format-component'
 import User from '../../user/user'
+import { PropTypes } from 'prop-types'
 
 function Dashboard({ userName, setLoginStatus }) {
 
@@ -12,7 +12,6 @@ function Dashboard({ userName, setLoginStatus }) {
   const [allCoins, setAllCoins] = useState([])
   const [userFavorites, setUserFavorites] = useState([])
   const [currency, setCurrency] = useState('USD')
-  const [currencyFormat, setFormat] = useState('en-US')
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
@@ -47,12 +46,6 @@ function Dashboard({ userName, setLoginStatus }) {
     setCurrency(event.target.value)
   }
 
-  const selectFormat = (event) => {
-    event.preventDefault()
-    setFormat(event.target.value)
-  }
-
-
   return (
     <div className='dashboard'>
       <div className='currency-selection'>
@@ -60,17 +53,12 @@ function Dashboard({ userName, setLoginStatus }) {
         <CurrencySelection
           selectCurrency={selectCurrency}
         />
-        <h2>Currency Format: </h2>
-        <CurrencyFormatSelection
-          selectFormat={selectFormat}
-        />
       </div>
       <h1 id='your-watchlist' className='coin-list'>Your Watchlist
         {!isLoading &&
           <WidgetDisplay
             favorited='favorited-coin'
             currency={currency}
-            currencyFormat={currencyFormat}
             addFavorite={event => addFavorite(event)}
             coins={
               allCoins.filter(coin => userFavorites.includes(coin.id))
@@ -84,7 +72,6 @@ function Dashboard({ userName, setLoginStatus }) {
             <WidgetDisplay
             favorited='unfavorited-coin'
             currency={currency}
-            currencyFormat={currencyFormat}
             addFavorite={event => addFavorite(event)}
               coins={
                 allCoins.filter(coin => !userFavorites.includes(coin.id))
@@ -95,6 +82,11 @@ function Dashboard({ userName, setLoginStatus }) {
         </h1>
     </div>
   )
+}
+
+Dashboard.propTypes = {
+  userName: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol]),
+  setLoginStatus: PropTypes.func
 }
 
 export default Dashboard
