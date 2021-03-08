@@ -51,7 +51,7 @@ const CurrencySelection = ({ selectCurrency }) => {
     >
       {
       currencies.map(currency => {
-        return <option value={currency}> {currency} </option>
+        return <option value={currency} key={currency}> {currency} </option>
       })
       }
     </select>
