@@ -25,11 +25,6 @@ describe('Dashboard Page', () => {
       .get('select[name=currency]').should('have.value', 'USD')
   })
 
-  it('Should include a currency format selection that defaults to en-US', () => {
-    cy.get('.currency-selection').should('contain', 'Currency Format:')
-      .get('select[name=format]').should('have.value', 'en-US')
-  })
-
   it('Should not include any coins in Your Watchlist section on initial page load', () => {
     cy.get('h1[id=your-watchlist]')
       .get('widget-container').should('not.exist')
@@ -68,6 +63,8 @@ describe('Dashboard Page', () => {
       .select('EUR')
       .get('div[name=bitcoin]')
       .should('contain', '€50,521.00')
+      .get('select[name=currency]')
+      .select('USD')
 
   })
 
