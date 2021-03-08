@@ -1,5 +1,22 @@
 describe('Dashboard Page', () => {
+
+
+
   it('Should take users to the dashboard page on login/account creation', () => {
+    cy.fixture('../fixtures/coinsUSD.json')
+      .then((response) => {
+        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
+          statusCode: 200,
+          body: response
+        })
+    })
+    cy.fixture('../fixtures/coinsCAD.json')
+      .then((response) => {
+        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=CAD&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
+          statusCode: 200,
+          body: response
+        })
+    })
     cy.visit('http://localhost:3000')
       .get('input[name=username]').type('testUser')
       .get('input[name=password]').type('password')

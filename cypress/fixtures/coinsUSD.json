@@ -1,0 +1,24 @@
+[
+  {
+    "current_price": 50776,
+    "id": "bitcoin",
+    "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "market_cap": 951576368383,
+    "name": "Bitcoin",
+    "price_change_24h": 937.26,
+    "price_change_percentage_24h": 1.8806,
+    "symbol": "btc",
+    "total volume" : 45897251866
+  },
+  {
+    "current_price": 1719.46,
+    "id": "ethereum",
+    "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+    "market_cap": 197920981443,
+    "name": "Ethereum",
+    "price_change_24h": 55.26,
+    "price_change_percentage_24h": 3.32034,
+    "symbol": "eth",
+    "total_volume": 29460528993
+  }
+]
