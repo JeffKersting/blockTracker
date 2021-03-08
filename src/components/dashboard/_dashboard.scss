@@ -1,5 +1,7 @@
 .dashboard {
   margin: 8vh;
+  display: flex;
+  flex-direction: column;
 
 
   .currency-selection {
