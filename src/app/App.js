@@ -24,7 +24,6 @@ function App() {
         <Route
           exact path='/dashboard'
           render= {() => {
-            console.log('RERENDER')
             return (
               <Redirect to='/login' />
             )}
