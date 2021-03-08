@@ -60,32 +60,34 @@ function Dashboard({ userName, setLoginStatus }) {
               selectCurrency={selectCurrency}
             />
           </div>
-          <h1 id='your-watchlist' className='coin-list'>Your Watchlist
+            {isLoading && <div className='loading'><div/>Loading...</div>}
             {!isLoading &&
-              <WidgetDisplay
-                favorited='favorited-coin'
-                currency={currency}
-                addFavorite={event => addFavorite(event)}
-                coins={
-                  allCoins.filter(coin => userFavorites.includes(coin.id))
-                }
-                key='favoriteCoins'
-              />
-            }
-          </h1>
-            <h1 id='all-coins' className='coin-list'>All Coins
-              {!isLoading &&
+              <div>
+              <h1 id='your-watchlist' className='coin-list'>Your Watchlist
                 <WidgetDisplay
-                favorited='unfavorited-coin'
-                currency={currency}
-                addFavorite={event => addFavorite(event)}
+                  favorited='favorited-coin'
+                  currency={currency}
+                  addFavorite={event => addFavorite(event)}
                   coins={
-                    allCoins.filter(coin => !userFavorites.includes(coin.id))
+                    allCoins.filter(coin => userFavorites.includes(coin.id))
                   }
-                  key='allCoins'
+                  key='favoriteCoins'
                 />
-              }
-            </h1>
+              </h1>
+              <h1 id='all-coins' className='coin-list'>All Coins
+                {isLoading && <h1 className='loading'><div/></h1>}
+                  <WidgetDisplay
+                  favorited='unfavorited-coin'
+                  currency={currency}
+                  addFavorite={event => addFavorite(event)}
+                    coins={
+                      allCoins.filter(coin => !userFavorites.includes(coin.id))
+                    }
+                    key='allCoins'
+                  />
+              </h1>
+            </div>
+          }
         </div>
       }
     </>

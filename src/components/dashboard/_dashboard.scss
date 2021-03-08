@@ -35,3 +35,31 @@
   padding: 2em;
   border-radius: 5px;
 }
+
+.loading {
+  position: fixed;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+
+
+
+
+  div {
+    position: absolute;
+    bottom: .2em;
+    right: 0em;
+    background-color: black;
+    height: 10px;
+    width: 22px;
+    animation: load 1.5s linear infinite;
+
+
+    @keyframes load {
+      0% {right: 0em}
+      100% {right: -.8em}
+    }
+  }
+
+}
