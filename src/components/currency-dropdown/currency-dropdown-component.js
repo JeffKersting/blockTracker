@@ -43,7 +43,10 @@ const CurrencySelection = ({ selectCurrency }) => {
   ]
 
   return (
-    <select onChange={event => selectCurrency(event)}>
+    <select
+      onChange={event => selectCurrency(event)}
+      name='currency'
+    >
       {
       currencies.map(currency => {
         return <option value={currency}> {currency} </option>

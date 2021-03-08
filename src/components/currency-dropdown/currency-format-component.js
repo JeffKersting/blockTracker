@@ -31,7 +31,10 @@ const CurrencyFormatSelection = ({ selectFormat }) => {
   ]
 
   return (
-    <select onChange={event => selectFormat(event)}>
+    <select
+      onChange={event => selectFormat(event)}
+      name='format'
+    >
       {
       formats.map(format => {
         return <option value={format}> {format} </option>
