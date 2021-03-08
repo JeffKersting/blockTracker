@@ -21,14 +21,14 @@ function Dashboard({ userName, setLoginStatus }) {
     setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
-      .then(setLoading(true))
+      .then(setLoading(false))
       .catch(error => setError(error))
   }, [])
 
   useEffect(() => {
     fetchRequests.fetchAllCoins(currency)
       .then(results => setAllCoins(results))
-      .then(setLoading(true))
+      .then(setLoading(false))
       .catch(error => setError(error))
   }, [currency])
 
