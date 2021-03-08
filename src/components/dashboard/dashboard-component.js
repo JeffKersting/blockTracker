@@ -26,9 +26,10 @@ function Dashboard({ userName, setLoginStatus }) {
   }, [])
 
   useEffect(() => {
-    fetchRequests.fetchAllCoins(currency)
+    fetchRequests.fetchAllCoins('currency')
       .then(results => setAllCoins(results))
       .then(setLoading(false))
+      .catch(error => setError(error))
   }, [currency])
 
   const addFavorite = (event) => {
@@ -49,40 +50,45 @@ function Dashboard({ userName, setLoginStatus }) {
   }
 
   return (
-    <div className='dashboard'>
-      <div className='currency-selection'>
-        <h2>Currency:</h2>
-        <CurrencySelection
-          selectCurrency={selectCurrency}
-        />
-      </div>
-      <h1 id='your-watchlist' className='coin-list'>Your Watchlist
-        {!isLoading &&
-          <WidgetDisplay
-            favorited='favorited-coin'
-            currency={currency}
-            addFavorite={event => addFavorite(event)}
-            coins={
-              allCoins.filter(coin => userFavorites.includes(coin.id))
-            }
-            key='favoriteCoins'
-          />
-        }
-      </h1>
-        <h1 id='all-coins' className='coin-list'>All Coins
-          {!isLoading &&
-            <WidgetDisplay
-            favorited='unfavorited-coin'
-            currency={currency}
-            addFavorite={event => addFavorite(event)}
-              coins={
-                allCoins.filter(coin => !userFavorites.includes(coin.id))
-              }
-              key='allCoins'
+    <>
+      {errorMessage && <h1 className='error'>{errorMessage}</h1>}
+      {!errorMessage &&
+        <div className='dashboard'>
+          <div className='currency-selection'>
+            <h2>Currency:</h2>
+            <CurrencySelection
+              selectCurrency={selectCurrency}
             />
-          }
-        </h1>
-    </div>
+          </div>
+          <h1 id='your-watchlist' className='coin-list'>Your Watchlist
+            {!isLoading &&
+              <WidgetDisplay
+                favorited='favorited-coin'
+                currency={currency}
+                addFavorite={event => addFavorite(event)}
+                coins={
+                  allCoins.filter(coin => userFavorites.includes(coin.id))
+                }
+                key='favoriteCoins'
+              />
+            }
+          </h1>
+            <h1 id='all-coins' className='coin-list'>All Coins
+              {!isLoading &&
+                <WidgetDisplay
+                favorited='unfavorited-coin'
+                currency={currency}
+                addFavorite={event => addFavorite(event)}
+                  coins={
+                    allCoins.filter(coin => !userFavorites.includes(coin.id))
+                  }
+                  key='allCoins'
+                />
+              }
+            </h1>
+        </div>
+      }
+    </>
   )
 }
 
