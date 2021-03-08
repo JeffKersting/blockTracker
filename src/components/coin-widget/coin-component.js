@@ -1,8 +1,7 @@
 import generateCoinData from '../../utilities/coin-data-helper'
+import { PropTypes } from 'prop-types'
 
 function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
-
-  console.log(coin)
 
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
@@ -45,6 +44,25 @@ function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) 
       </div>
     </div>
   )
+}
+
+CoinWidget.propTypes = {
+  coin: PropTypes.shape(
+    {
+      current_price: PropTypes.number,
+      id: PropTypes.string,
+      image: PropTypes.string,
+      market_cap: PropTypes.number,
+      name: PropTypes.string,
+      price_change_24h: PropTypes.number,
+      price_change_percentage_24h: PropTypes.number,
+      symbol: PropTypes.string,
+      total_volume: PropTypes.number
+    }
+  ),
+  currency: PropTypes.string,
+  favorited: PropTypes.string,
+  addFavorite: PropTypes.func
 }
 
 export default CoinWidget

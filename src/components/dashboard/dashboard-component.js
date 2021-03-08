@@ -4,6 +4,7 @@ import WidgetDisplay from '../widget-display/widget-display-component'
 import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
 import CurrencyFormatSelection from '../currency-dropdown/currency-format-component'
 import User from '../../user/user'
+import { PropTypes } from 'prop-types'
 
 function Dashboard({ userName, setLoginStatus }) {
 
@@ -95,6 +96,11 @@ function Dashboard({ userName, setLoginStatus }) {
         </h1>
     </div>
   )
+}
+
+Dashboard.propTypes = {
+  userName: PropTypes.string,
+  setLoginStatus: PropTypes.func
 }
 
 export default Dashboard
