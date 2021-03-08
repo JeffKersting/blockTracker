@@ -1,11 +1,11 @@
-function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
+function CoinWidget({ coin, favorited, addFavorite, currency }) {
 
 
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
   const favoriteStatus = favorited === 'favorited-coin' ? 'Unwatch' : 'Watch'
   const formattedCoin = coin.current_price.toLocaleString(
-    `${currencyFormat}`, {
+    `en-US`, {
       style: 'currency',
       currency: `${currency}`
     })
