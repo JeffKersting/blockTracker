@@ -1,5 +1,5 @@
 .header {
-  background-color: red;
+  background-color: #050505;
   position: fixed;
   top: 0;
   width: 100%;
@@ -8,4 +8,5 @@
   justify-content: space-around;
   align-items: center;
   padding: .2em;
+  box-shadow: 1px 0 4px 1px white;
 }
