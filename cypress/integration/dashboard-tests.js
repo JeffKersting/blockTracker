@@ -10,9 +10,9 @@ describe('Dashboard Page', () => {
           body: response
         })
     })
-    cy.fixture('../fixtures/coinsCAD.json')
+    cy.fixture('../fixtures/coinsEUR.json')
       .then((response) => {
-        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=CAD&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
+        cy.intercept("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=EUR&order=market_cap_desc&per_page=100&page=1&sparkline=false", {
           statusCode: 200,
           body: response
         })
@@ -77,6 +77,13 @@ describe('Dashboard Page', () => {
       .get('h1[id=your-watchlist] div[name=bitcoin]').should('not.exist')
   })
 
+  it('Should allow users to select a different currency and update the coin data', () => {
+    cy.get('select[name=currency]')
+      .select('EUR')
+      .get('div[name=bitcoin]')
+      .should('contain', '€42,634.00')
+
+  })
 
 
   //Add currency/format change after making intercepts
