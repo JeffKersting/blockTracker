@@ -13,4 +13,11 @@ describe('Fetch request error handling', () => {
       .get('button[name=create-user]').click()
       .get('.error').should('contain', 'Uh oh! Our server is experiencing some difficulties right now, please refresh the page!')
     })
+
+  it('Should not render any other elements except the header on the page when an error is thrown', () => {
+    cy.get('.header').should('exist')
+      .get('.currency-selection').should('not.exist')
+      .get('h1[id=your-watchlist]').should('not.exist')
+      .get('h1[id=all-coins]').should('not.exist')
+  })
 })
