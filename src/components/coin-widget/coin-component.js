@@ -1,5 +1,3 @@
-import generateCoinData from '../../utilities/coin-data-helper'
-
 function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
 
   console.log(coin)
