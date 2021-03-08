@@ -6,12 +6,12 @@ function WidgetDisplay( { coins, favorited, addFavorite, currency, currencyForma
     <div className='widget-display'>
       {coins.map((coin, index) =>
          <CoinWidget
-          coin={coin}
-          currency={currency}
-          currencyFormat={currencyFormat}
-          key={index}
-          favorited={favorited}
-          addFavorite={addFavorite}
+            coin={coin}
+            currency={currency}
+            currencyFormat={currencyFormat}
+            key={index}
+            favorited={favorited}
+            addFavorite={addFavorite}
          />)}
     </div>
   )
