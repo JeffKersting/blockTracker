@@ -1,5 +1,5 @@
 import fetchRequests from '../../utilities/fetch-requests'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import WidgetDisplay from '../widget-display/widget-display-component'
 import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
 import CurrencyFormatSelection from '../currency-dropdown/currency-format-component'

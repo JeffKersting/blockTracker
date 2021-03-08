@@ -1,6 +1,5 @@
 function CoinWidget({ coin, favorited, addFavorite, currency, currencyFormat }) {
 
-  console.log(coin)
 
   const priceChange = coin.price_change_24h > 0 ? 'positive' : 'negative'
   const priceChangeSymbol = priceChange === 'positive' ? '+' : ''
