@@ -4,7 +4,6 @@ import Header from '../components/header/header-component'
 import LoginPage from '../components/login-page/login-component'
 import Dashboard from '../components/dashboard/dashboard-component'
 
-
 function App() {
 
   const [loggedIn, setLoginStatus] = useState(false)
