@@ -5,7 +5,7 @@ import CurrencySelection from '../currency-dropdown/currency-dropdown-component'
 import User from '../../user/user'
 import { PropTypes } from 'prop-types'
 
-function Dashboard({ userName, setLoginStatus }) {
+function Dashboard({ userName }) {
 
   const [currentUser, setCurrentUser] = useState('')
   const [isLoading, setLoading] = useState(true)
@@ -16,7 +16,6 @@ function Dashboard({ userName, setLoginStatus }) {
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem(userName))
-    setLoginStatus(true)
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
     fetchRequests.fetchAllCoins(currency)
