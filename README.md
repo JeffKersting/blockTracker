@@ -30,14 +30,6 @@ If you are interested in browsing our code or contributing, follow the steps bel
 This application uses the Cypress test suite for end-to-end testing. If you would like to run these tests in terminal, run the command `npx cypress run`.
 To view these tests in action, run the command `npx cypress open` and select the test file you would like to run.
 
-### Planning
-
-Below is a component layout and wireframe created during the planning phase:
-
-![architecture]()
-
-![wireframe]()
-
 
 ### Technologies Used
 
