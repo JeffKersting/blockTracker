@@ -1,9 +1,11 @@
 # blockTracker - A Crypto Tracking Application
 
 ### Deployed Site
+
 [visit blockTracker here!]()
 
 ## Table of Contents
+
 1. [Introduction](#introduction)
 2. [Instructions](#setup-instructions)
 3. [How-To](#using-blockTracker)
@@ -11,6 +13,7 @@
 5. [Challenges & Wins](#challenges-&-wins)
 
 ## Introduction
+
   The task was to build an app that reaches a niche audience, consuming an API of our choice. Given growing interest in the crypto currency space, I have created an app that allows users to view the top crypto-currencies. Users are also able to add their favorite cryptos to a watchlist. Please follow the [setup instructions](#setup-instructions) below on how to begin!
 
 ## Setup Instructions
@@ -37,6 +40,7 @@ Below is a component layout and wireframe created during the planning phase:
 
 
 ### Technologies Used
+
 - React
 - React Hooks
 - React Router
@@ -44,6 +48,8 @@ Below is a component layout and wireframe created during the planning phase:
 - github & github projects
 - End-to-end testing
 - Local Storage
+- Cypress
+- Prop Types
 
 
 [Back to Top of Page](#table-of-contents)
@@ -51,18 +57,25 @@ Below is a component layout and wireframe created during the planning phase:
 ## Using blockTracker
 
 ## Login Page
+
 On page load, you are greeted by a login page. This is currently designed to create a user account on their local device. If a user does not have an account, they are able to enter a username and password and select Create Account. This will save the users profile to local storage and take the user to the dashboard page. Existing users are able to enter their username and password and select Login to be taken to the dashboard to view their favorited coins on their watchlist in addition to all other top cryptocurrencies.
 
-![login page example gif]()
+![login page example gif](https://media.giphy.com/media/eFO7SNNmSwlUK0vKcW/giphy.gif)
 
 ## Header
+
 The navigation bar will remain along all sections of the page, its allows users to logout upon login.
 
 
 ## Dashboard Page
+
 Once a user has logged in, the dashboard page will display a list of top crypto-currencies. Each currency has a 'Watch' button that will move the coin to the watchlist section that appears before other cryptos. Once a coin has been added to the watchlist, it can then be removed by selecting the 'Unwatch' button.
 
-![dashboard favoriting]()
+![dashboard favoriting](https://media.giphy.com/media/AnCxg8JsnoOQgLmFyd/giphy.gif)
+
+Users are able to change the currency being displayed in the coin data.
+
+![currency selection](https://media.giphy.com/media/7Qoi3R4Bx1LiMRDAtg/giphy.gif)
 
 Future Iterations:
 - Add crypto news.
@@ -79,16 +92,19 @@ Future Iterations:
 ## Challenges & Wins
 
 ### Challenges
+
 - **Reaching an audience:** selecting a specific target audience can be tricky. For this project, I went back and forth between several audiences I wanted to reach. I ultimately landed on cryptocurrency due to its rising widespread interest.
 
 - **React Routes:** Proper implementation of React router, specifically redirects and persistent data when refreshing the page proved to be more challenging than anticipated..
 - **Testing:**  Ensuring full end-to-end testing can be tedious, but ultimately, ensuring that every aspect of your application is being checked is rewarding.
 
 ### Wins/Reflections
+
 - **Modularity** I wanted to ensure that the file structure of this project was properly broken up and modular to allow for easier code navigation.
 - **Project Documentation** I took care to stay up on top of my project board/issues, along with atomized commits. These allow the evolution of the project to be tracked, and decision points for new feature implementation to be easily tracked.
 
 ### Contributors
+
 <table>
   <tr>
     <td> Jeff Kersting <a href="https://github.com/JeffKersting">GH</td>
