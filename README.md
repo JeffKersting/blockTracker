@@ -11,6 +11,7 @@
 3. [How-To](#using-blockTracker)
 4. [Learning Goals](#learning-goals)
 5. [Challenges & Wins](#challenges-&-wins)
+6. [Reflections](#reflections)
 
 ## Introduction
 
@@ -92,10 +93,18 @@ Future Iterations:
 - **React Routes:** Proper implementation of React router, specifically redirects and persistent data when refreshing the page proved to be more challenging than anticipated..
 - **Testing:**  Ensuring full end-to-end testing can be tedious, but ultimately, ensuring that every aspect of your application is being checked is rewarding.
 
-### Wins/Reflections
+### Wins
 
 - **Modularity** I wanted to ensure that the file structure of this project was properly broken up and modular to allow for easier code navigation.
 - **Project Documentation** I took care to stay up on top of my project board/issues, along with atomized commits. These allow the evolution of the project to be tracked, and decision points for new feature implementation to be easily tracked.
+
+[Back to Top of Page](#table-of-contents)
+
+### Reflections
+
+- **Use Context** I encountered several problems during this project that could have been greatly simplified by using a context provider. It helped me gain a better understanding of the practical applications of useContext, and is something I plan on furthering my knowledge/proficiency of in the future.
+- **Cypress Testing** I was able to gain more experience and knowledge using the Cypress testing suite, and plan on digging in to some of the more advanced concepts going forward. I was also able to gain a greater understanding and appreciation of end-to-end testing.
+- **Time Management** Due to the short time-frame of this project, I was able to gain a greater understanding of how I am able to work more effectively. Specifically, I learned that walking away from the project later at night and getting rest can be much more beneficial than struggling with an issue until it is resolved. Normally, I would step away when I encountered a problem. Because of the short time-frame, I initially started this project without getting enough rest. This was a valuable lesson to take into the future, allowing me to more effectively approach projects with short turnarounds.
 
 [Back to Top of Page](#table-of-contents)
 
