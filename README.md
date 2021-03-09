@@ -27,8 +27,7 @@
 
 ### Testing
 
-This application uses the Cypress test suite for end-to-end testing. If you would like to run these tests in terminal, run the command `npx cypress run`.
-To view these tests in action, run the command `npx cypress open` and select the test file you would like to run.
+This application uses the Cypress test suite for end-to-end testing. To run these tests, run the command `npx cypress open` and select the test file you would like to run.
 
 
 ### Technologies Used
