@@ -18,7 +18,7 @@ function Dashboard({ userName }) {
     const savedUser = JSON.parse(localStorage.getItem(userName))
     setCurrentUser(new User(savedUser.name, savedUser.password, savedUser.favorites))
     setUserFavorites([...savedUser.favorites])
-    fetchRequests.fetchAllCoins(currency)
+    fetchRequests.fetchAllCoins('USD')
       .then(results => setAllCoins(results))
       .then(setLoading(false))
       .catch(error => setError(error))
