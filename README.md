@@ -81,6 +81,8 @@ Future Iterations:
 
 - Additionally, I wanted to spend extra time focusing on code outside the scope of core functionality. This includes writing tests that were as in-depth as possible, and implementing prop type checks and stricter input checks. I tend to focus too much on adding additional features, and certain foundational practices will be neglected in the process. By slowing my workflow, and focusing on solid fundamentals, I feel confident that my code is clearer and less prone to issues.
 
+[Back to Top of Page](#table-of-contents)
+
 ## Challenges & Wins
 
 ### Challenges
