@@ -34,6 +34,12 @@
   background: rgba(240, 128, 128, .5);
   padding: 2em;
   border-radius: 5px;
+
+  @media only screen and (min-width: 500px) {
+    left: 50%;
+    font-size: 2em;
+    width: 10em;
+  }
 }
 
 .loading {
@@ -42,9 +48,6 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 2em;
-
-
-
 
   div {
     position: absolute;
