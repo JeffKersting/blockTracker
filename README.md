@@ -36,7 +36,7 @@ This application uses the Cypress test suite for end-to-end testing. To run thes
 - React Hooks
 - React Router
 - Sass
-- github & github projects
+- Github & Github Projects
 - End-to-end testing
 - Local Storage
 - Cypress
