@@ -45,7 +45,6 @@ function App() {
             return (
               <Dashboard
                 userName={match.params.userName}
-                setLoginStatus={setLoginStatus}
               />
             )}
           }
