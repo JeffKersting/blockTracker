@@ -55,12 +55,12 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
     setPasswordInput('')
   }
 
-
   return (
     <>
       <div className='login-container'>
       <h1>blockTracker</h1>
         <form>
+          <label htmlFor='username' value='username input' />
           <input
             type='text'
             placeholder='username...'
@@ -68,6 +68,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
             value = {userInput}
             onChange = {event => userInputHandler(event)}
           />
+          <label htmlFor='password' value='password input' />
           <input
             type='text'
             placeholder='password...'
@@ -75,17 +76,17 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
             value= {passwordInput}
             onChange = {event => passwordInputHandler(event)}
           />
+          <label htmlFor='login' value='login submit' />
           <button
-          name='login'
-          onClick={event => loginUser(event)}
-          >
-          Login
+            name='login'
+            onClick={event => loginUser(event)}
+          > Login
           </button>
+          <label htmlFor='create-user' value='create user submit' />
           <button
             name='create-user'
             onClick={event => createUser(event)}
-          >
-            Create Account
+          > Create Account
           </button>
         </form>
         {userNotification && <h1 className='login-error'>{userNotification}</h1>}
