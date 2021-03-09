@@ -2,7 +2,7 @@
 
 ### Deployed Site
 
-[visit blockTracker here!](https://block-tracker.vercel.app/)
+[Visit blockTracker here!](https://block-tracker.vercel.app/)
 
 ## Table of Contents
 
