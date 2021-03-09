@@ -2,7 +2,7 @@
 
 ### Deployed Site
 
-[visit blockTracker here!]()
+[visit blockTracker here!](https://block-tracker.vercel.app/)
 
 ## Table of Contents
 
@@ -48,18 +48,18 @@ To view these tests in action, run the command `npx cypress open` and select the
 
 ## Using blockTracker
 
-## Login Page
+### Login Page
 
 On page load, you are greeted by a login page. This is currently designed to create a user account on their local device. If a user does not have an account, they are able to enter a username and password and select Create Account. This will save the users profile to local storage and take the user to the dashboard page. Existing users are able to enter their username and password and select Login to be taken to the dashboard to view their favorited coins on their watchlist in addition to all other top cryptocurrencies.
 
 ![login page example gif](https://media.giphy.com/media/eFO7SNNmSwlUK0vKcW/giphy.gif)
 
-## Header
+### Header
 
 The navigation bar will remain along all sections of the page, its allows users to logout upon login.
 
 
-## Dashboard Page
+### Dashboard Page
 
 Once a user has logged in, the dashboard page will display a list of top crypto-currencies. Each currency has a 'Watch' button that will move the coin to the watchlist section that appears before other cryptos. Once a coin has been added to the watchlist, it can then be removed by selecting the 'Unwatch' button.
 
@@ -94,6 +94,8 @@ Future Iterations:
 
 - **Modularity** I wanted to ensure that the file structure of this project was properly broken up and modular to allow for easier code navigation.
 - **Project Documentation** I took care to stay up on top of my project board/issues, along with atomized commits. These allow the evolution of the project to be tracked, and decision points for new feature implementation to be easily tracked.
+
+[Back to Top of Page](#table-of-contents)
 
 ### Contributors
 
