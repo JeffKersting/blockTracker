@@ -66,6 +66,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
             placeholder='username...'
             name='username'
             value = {userInput}
+            autoComplete='off'
             onChange = {event => userInputHandler(event)}
           />
           <label htmlFor='password' value='password input' />
@@ -74,6 +75,7 @@ function LoginPage ({ setLoginStatus, loggedIn }) {
             placeholder='password...'
             name='password'
             value= {passwordInput}
+            autoComplete='off'
             onChange = {event => passwordInputHandler(event)}
           />
           <label htmlFor='login' value='login submit' />
