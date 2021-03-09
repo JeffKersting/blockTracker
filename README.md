@@ -19,7 +19,6 @@
 
 ## Setup Instructions
 
-If you are interested in browsing our code or contributing, follow the steps below:
   1. Fork this repo - on the top right corner of this page, click the **Fork** button.
   2. Once forked, `git clone [ssh key]` in your terminal, to add this repo locally.
   3. Run `npm install` to install all of this projects dependencies.
